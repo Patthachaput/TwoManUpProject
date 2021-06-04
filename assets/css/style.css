@@ -1553,3 +1553,92 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+/*--------------------------------------------------------------
+# login Section
+--------------------------------------------------------------*/
+.login {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background: url("../img/hero-bg.jpg") top center;
+  background-size: cover;
+  position: relative;
+}
+
+.login:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.login .alert {
+  padding-top: 42px;
+  padding-bottom: 10px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 992px) {
+  .login .alert {
+    padding-top: 32px;
+    padding-bottom: 5px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.login .form-control {
+  width: 100%;
+  background: #fff;
+  padding-left: 45px;
+  min-height: 55px;
+}
+
+.login .form-control:focus{
+  border-color: #93d8fa;
+  box-shadow: none;
+}
+
+.login  .form-group {
+    position: relative;
+  }
+
+.login .form-group i {
+  position: absolute;
+  left: 13px;
+  top: 9px;
+  font-size: 24px;
+}
+
+.login h1 {
+  padding-bottom: 20px;
+}
+
+.login p {
+  padding-top: 20px;
+}
+
+.login a {
+  color: #c5d8e3;
+  transition: 0.3s;
+}
+
+.login a:hover {
+  color: #93d8fa;
+}
+
+.login .form-group button[type="submit"] {
+  background: #93d8fa;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.login .form-group button[type="submit"]:hover {
+  background: #3ac162;
+}
