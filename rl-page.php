@@ -21,13 +21,6 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-
-    <script src="jquery.js"></script> 
-    <script> 
-    $(function(){
-      $("#includedContent").load("test.html"); 
-    });
-    </script> 
     <!-- =======================================================
     * Template Name: Mentor - v4.3.0
     * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
@@ -37,7 +30,7 @@
   </head>
   <body>
     <!-- ======= login ======= -->
-    <div id="login" class="login d-flex justify-content-center align-items-center">
+    <div id="rl-page" class="rl-page d-flex justify-content-center align-items-center">
       <div class="col-sm-9 col-lg-5 alert alert-light" role="login" data-aos="zoom-in" data-aos-delay="100">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
@@ -48,11 +41,11 @@
           </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
-          <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-            <div id="includedContent"></div>
+          <div class="login tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+            <?php include 'login.html';?>
           </div>
-          <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
-            <include src="login.html"></include>
+          <div class="regis tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
+            <?php include 'register.html';?>
           </div>
         </div>
       </div>
