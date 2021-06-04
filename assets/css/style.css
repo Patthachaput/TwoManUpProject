@@ -1577,14 +1577,14 @@ section {
 }
 
 .login .alert {
-  padding-top: 42px;
+  padding-top: 22px;
   padding-bottom: 10px;
   background: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 992px) {
   .login .alert {
-    padding-top: 32px;
+    padding-top: 12px;
     padding-bottom: 5px;
     background: rgba(255, 255, 255, 0.9);
   }
@@ -1614,6 +1614,7 @@ section {
 }
 
 .login h1 {
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -1628,6 +1629,15 @@ section {
 
 .login a:hover {
   color: #93d8fa;
+}
+
+.login .nav-pills .nav-item button.active {
+    background-color: #93d8fa;
+    color: #fff;
+}
+
+.login .nav-pills .nav-item .nav-link{
+   color: #93d8fa;
 }
 
 .login .form-group button[type="submit"] {
