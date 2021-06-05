@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Home - UpTogether</title>
+    <title>RL-Page - UpTogether</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
@@ -21,17 +21,11 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-    <!-- =======================================================
-    * Template Name: Mentor - v4.3.0
-    * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
   </head>
   <body>
-    <!-- ======= login ======= -->
+    <!-- ======= rl-page ======= -->
     <div id="rl-page" class="rl-page d-flex justify-content-center align-items-center">
-      <div class="col-sm-9 col-lg-5 alert alert-light" role="login" data-aos="zoom-in" data-aos-delay="100">
+      <div class="col-sm-10 col-lg-6 alert alert-light" role="login" data-aos="zoom-in" data-aos-delay="100">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true">Login</button>
@@ -42,14 +36,14 @@
         </ul>
         <div class="tab-content" id="pills-tabContent">
           <div class="login tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-            <?php include 'login.html';?>
+            <?php include 'login.html';?> <!--login Section-->
           </div>
           <div class="regis tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
-            <?php include 'register.html';?>
+            <?php include 'register.html';?> <!--register Section-->
           </div>
         </div>
       </div>
-    </div><!-- End login -->
+    </div><!-- End rl-page -->
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
