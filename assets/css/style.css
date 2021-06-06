@@ -729,6 +729,7 @@ section {
 
 .courses .course-item img {
   border-radius: 7px 7px 0px 0px;
+  width: 100%;
 }
 
 .courses .course-content {
@@ -789,6 +790,119 @@ section {
 .courses .trainer .trainer-rank {
   font-size: 18px;
   color: #657a6d;
+}
+
+/*--------------------------------------------------------------
+# addCouse
+--------------------------------------------------------------*/
+.addCouse .course-page {
+  border-radius: 7px;
+  border: 1px solid #eef0ef;
+}
+
+.addCouse .course-page img {
+  
+}
+
+.addCouse .course-content {
+  padding: 15px;
+}
+
+.addCouse .course-content h3 {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.addCouse .course-content p {
+  color: #777777;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.addCouse .course-content h4 {
+  font-size: 14px;
+  background: #93d8fa;
+  padding: 7px 14px;
+  color: #fff;
+  margin: 0;
+}
+
+.addCouse .form-control {
+  width: 100%;
+  background: #fff;
+  padding-left: 45px;
+  min-height: 55px;
+}
+
+.addCouse .form-control, .addCouse .form-select {
+  width: 100%;
+  background: #fff;
+}
+
+.addCouse .form-control:focus {
+  border-color: #93d8fa;
+  box-shadow: none;
+}
+
+.addCouse .form-select:focus{
+  border-color: #93d8fa;
+  box-shadow: none;
+}
+
+.addCouse  .form-group {
+    position: relative;
+  }
+
+.addCouse .form-group i {
+  position: absolute;
+  left: 13px;
+  top: 9px;
+  font-size: 24px;
+}
+
+.addCouse h1, .addCouse h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.addCouse a {
+  color: #c5d8e3;
+  transition: 0.3s;
+}
+
+.addCouse a:hover {
+  color: #93d8fa;
+}
+
+.addCouse .form-group .padding div {
+  padding-top: 15px;
+}
+
+.addCouse .form-group button[type="submit"] {
+  background: #93d8fa;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.addCouse .form-group button[type="submit"]:hover {
+  background: #3ac162;
+}
+
+.addCouse .form-group button[type="button"] {
+  background: #93d8fa;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.addCouse .form-group button[type="button"]:hover {
+  background: #3ac162;
 }
 
 /*--------------------------------------------------------------
@@ -1589,13 +1703,14 @@ section {
   }
 }
 
-.regis form {
-  height: 10px;
+.rl-page .regis form {
+  height: 420px;
 }
 
 @media (max-width: 992px) {
-  .regis form {
-    height: 400px;
+  .rl-page .regis form {
+    height: 420px;
+    max-width: 300px;
   }
 }
 
@@ -1621,7 +1736,6 @@ section {
 .regis .form-control, .regis .form-select {
   width: 100%;
   background: #fff;
-  max-height: 56px;
 }
 
 .login .form-control:focus, .regis .form-control:focus {
