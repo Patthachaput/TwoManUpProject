@@ -79,7 +79,7 @@
                   <p class="card-text">School: </p> <!-- for student -->
                   <p class="card-text">Grade: </p> <!-- for student -->
                   <p class="card-text">Total hour: </p> <!-- for student -->
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <p><a href="#">Edit Profile</a></p>
                 </div>
               </div>
               </div> <!-- End Course Item-->
