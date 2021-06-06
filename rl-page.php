@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  include('server.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,12 +26,6 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-    <!-- =======================================================
-    * Template Name: Mentor - v4.3.0
-    * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
   </head>
   <body>
     <!-- ======= login ======= -->
@@ -42,23 +41,36 @@
         </ul>
         <div class="tab-content" id="pills-tabContent">
           <div class="login tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-            <?php include 'login.html';?>
+            <?php include 'login.php';?>
           </div>
           <div class="regis tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
-            <?php include 'register.html';?>
+            <?php include 'register.php';?>
           </div>
         </div>
-      </div>
-    </div><!-- End login -->
+        <p class="text-danger"><?php
 
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/purecounter/purecounter.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-    
-  </body>
-</html>
+        if(isset($_SESSION['error'])){
+          $error = $_SESSION['error'];
+          foreach ($error as $key => $value) {
+            echo $value;
+            echo "<br>";
+          };
+        }
+
+        unset($_SESSION['error']);
+        ?></p>
+
+      </div>
+
+      </div><!-- End login -->
+
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/aos/aos.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="assets/vendor/purecounter/purecounter.js"></script>
+      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
+    </body>
+  </html>
