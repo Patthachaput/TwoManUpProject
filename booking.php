@@ -68,17 +68,19 @@
                 
                 <form action="" role="form" method="post">
                   <div class="list-group">
+                    <label class="list-group-item active">
+                      Couse Scchedule
                     <label class="list-group-item">
                       <input class="form-check-input me-1" type="checkbox" value="">
-                      First checkbox
+                      12/2/2021 10:00 - 12:00
                     </label>
                     <label class="list-group-item">
                       <input class="form-check-input me-1" type="checkbox" value="">
-                      Second checkbox
+                      14/2/2021 10:00 - 12:00
                     </label>
                     <label class="list-group-item">
                       <input class="form-check-input me-1" type="checkbox" value="">
-                      Third checkbox
+                      15/2/2021 11:00 - 13:00
                     </label>
                     <label class="list-group-item">
                       <input class="form-check-input me-1" type="checkbox" value="">
