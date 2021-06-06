@@ -24,35 +24,8 @@
   </head>
   <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-center">
-        <h1 class="logo me-auto"><a href="index.html">Mentor</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-        <nav id="navbar" class="navbar order-last order-lg-0">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a class="active" href="courses.html">Courses</a></li>
-            <li><a href="trainers.html">Tutor</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Book Couse</a></li>
-              <li><a href="#"></a>Your schedule</li>
-              <li><a href="#">My hours</a></li>
-              <li><a href="#">TopUp</a></li>
-              <li><a href="#">Playment</a></li>
-              <li><a href="#">Book History</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-        <a href="courses.html" class="get-started-btn">Login</a>
-      </div>
-      </header><!-- End Header -->
+    <?php include('header.php')?>
+
       <main id="main" data-aos="fade-in">
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs">
@@ -67,36 +40,38 @@
               <div class="course-page">
                 <br><h1>Adding New Couse</h1>
                 <div class="course-content">
-                  <!---------------form----------------->
-                  <form action="" role="form" method="post">
+                  <!--------------form----------------->
+                  <form action="add_course_db.php" role="form" method="post">
                     <div class="form-group row g-3 mb-3">
-                      <div class="col-6">
+                      <div class="col-12">
                         <div class="form-floating">
-                          <input class="form-control" type="text" id="subject" name="subject" placeholder="Subject">
+                          <input class="form-control" type="text" id="subject" name="subject" placeholder="Subject" required>
                           <label for="subject">Subject</label>
-                        </div>
-                      </div>
-                      <div class="col-6">
-                        <div class="form-floating">
-                          <input class="form-control" type="text" id="tutorID" name="tutorID" placeholder="Tutor ID">
-                          <label for="tutorID">Tutor ID</label>
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="form-floating">
-                          <input class="form-control" type="number" id="courseDuration" name="courseDuration" placeholder="Tutor ID">
+                          <input class="form-control" type="number" id="courseDuration" name="max-hour" placeholder="Tutor ID" required>
                           <label for="courseDuration">Course Duration (hour)</label>
                           </div><!-- กูขอเปลี่ยนชื่อ maxHours เป็น courseDuration นะกูว่ามันสื่อความหมายมากกว่า-->
                         </div>
                         <div class="col-12">
                           <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave details here" id="courseDetails" name="courseDetails" style="height: 100px"></textarea>
+                            <textarea class="form-control" placeholder="Leave details here" id="courseDetails" name="detail" style="height: 100px"></textarea required>
                             <label for="courseDetails">Course Details</label>
                           </div>
                         </div>
+                        <p style="color:green">
+                          <?php
+                            if(isset($_SESSION['add_course'])){
+                              echo $_SESSION['add_course'];
+                              unset($_SESSION['add_course']);
+                            }
+                          ?>
+                        </p>
                         <div class="col-12">
                           <div class="form-group padding">
-                            <div class="text-center"><button type="submit">Add Couse</button></div>
+                            <div class="text-center"><button type="submit" name="add_course">Add Couse</button></div>
                           </div>
                         </div>
                       </div>
@@ -130,7 +105,7 @@
                     </div>
                   </div>
                   </footer><!-- End Footer -->
-                  
+
                   <div id="preloader"></div>
                   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
                   <!-- Vendor JS Files -->

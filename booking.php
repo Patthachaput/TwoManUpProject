@@ -24,37 +24,36 @@
   </head>
   <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-center">
-        <h1 class="logo me-auto"><a href="index.html">Mentor</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-        <nav id="navbar" class="navbar order-last order-lg-0">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a class="active" href="courses.html">Courses</a></li>
-            <li><a href="trainers.html">Tutor</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Book Couse</a></li>
-              <li><a href="#"></a>Your schedule</li>
-              <li><a href="#">My hours</a></li>
-              <li><a href="#">TopUp</a></li>
-              <li><a href="#">Playment</a></li>
-              <li><a href="#">Book History</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-        <a href="courses.html" class="get-started-btn">Login</a>
-      </div>
-      </header><!-- End Header -->
-      <main id="main" data-aos="fade-in">
+        <?php include('header.php'); ?>
         <!-- ======= Breadcrumbs ======= -->
+        <?php
+          $course = array();
+          $schedule = array();
+          $user_info = $_SESSION['username'];
+
+          $user_id = $user_info['user_id'];
+
+          if(isset($_GET['course_id'])){
+
+            $course_id = $_GET['course_id'];
+
+            $sql = "SELECT `subject`
+                    FROM `courses`
+                    WHERE course_id = '$course_id'";
+
+            $result = $conn->query($sql);
+
+            if($result->num_rows > 0){
+              while ($row = $result->fetch_assoc()) {
+                $course = $row;
+              }
+            }
+
+            $sql = "SELECT * FROM schedule WHERE course_id = '$course_id'";
+
+            $result = $conn->query($sql);
+          }
+        ?>
         <div class="breadcrumbs">
           <div class="container">
             <h2>Booking Couse</h2>
@@ -64,32 +63,107 @@
           <!-- ======= Courses Section ======= -->
           <section id="addCouse" class="addCouse">
             <div class="container" data-aos="zoom-in" data-aos-delay="100">
-                <br><h1>Booking Couse</h1>
-                
-                <form action="" role="form" method="post">
+                <br><h1>Booking Couse: <?php echo $course['subject']; ?></h1>
+
+                <form action="booking_db.php" method="post">
                   <div class="list-group">
                     <label class="list-group-item active">
                       Couse Scchedule
-                    <label class="list-group-item">
-                      <input class="form-check-input me-1" type="checkbox" value="">
-                      12/2/2021 10:00 - 12:00
-                    </label>
-                    <label class="list-group-item">
-                      <input class="form-check-input me-1" type="checkbox" value="">
-                      14/2/2021 10:00 - 12:00
-                    </label>
-                    <label class="list-group-item">
-                      <input class="form-check-input me-1" type="checkbox" value="">
-                      15/2/2021 11:00 - 13:00
-                    </label>
-                    <label class="list-group-item">
-                      <input class="form-check-input me-1" type="checkbox" value="">
-                      Fourth checkbox
-                    </label>
-                    <label class="list-group-item">
-                      <input class="form-check-input me-1" type="checkbox" value="">
-                      Fifth checkbox
-                    </label>
+                      <?php
+                        while ($row = $result->fetch_assoc()) {
+                          $schedule_id = $row['schedule_id'];
+                          $hours = $row['hours'];
+                          $start_time = $row['start_time'];
+
+                          //Get number of student in the class
+                          $sql = "SELECT COUNT(user_id)
+                                  FROM booking_detail
+                                  WHERE schedule_id = '$schedule_id'";
+
+                          $result_count = $conn->query($sql);
+                          $num_student; //current total sutdent in schedule
+                          while ($count_row = $result_count->fetch_assoc()){
+                            $num_student = $count_row;
+                          }
+                          $num_student = $num_student['COUNT(user_id)'];
+                          //End get number of student in the class
+
+                          //Check if user book already
+                          $sql = "SELECT * FROM `booking_detail` WHERE user_id = '$user_id' AND schedule_id = '$schedule_id'";
+                          $check_student = $conn->query($sql);
+                          //End check if user book already
+
+                        ?>
+                        <label class="list-group-item">
+                          <input class="form-check-input me-1" type="checkbox" value="<?php echo $row['schedule_id'];?>" name="schedule[]"
+                          <?php
+                            date_default_timezone_set('Asia/Bangkok');
+                            $current_time = date_default_timezone_get();
+                            $current_time = strtotime($current_time);
+                            $out_of_time = FALSE;
+                            $student_full = FALSE;
+                            $student_book_already = FALSE;
+
+                            if(mysqli_num_rows($check_student) > 0){
+                              echo "disabled";
+                              $student_book_already = TRUE;
+                            }
+                            elseif($current_time > strtotime($start_time)){
+                              echo "disabled";
+                              $out_of_time = TRUE;
+
+                            }elseif($num_student == (int)$row['max_students']) {
+                              echo "disabled";
+                              $student_full = TRUE;
+                            }
+                          ?>
+                          >
+                          <!-- Display time and detail -->
+                          <p style="color:<?php if($out_of_time or $student_full or $student_book_already):echo "red"; endif ?>"><?php echo date('Y-m-d h:i',strtotime($start_time));?> - <?php echo date('h:i',strtotime("+$hours hour", strtotime($row['start_time'])));?>
+                          <strong>Topic</strong>: <?php echo $row['detail']; ?> <br>
+                          <!-- End display time and detail -->
+
+                          <!-- Check out of time -->
+                          <strong style="text-decoration: underline;"><?php if($out_of_time):echo "Out of time"; endif ?></strong>
+                          <!-- End check out of time -->
+
+                          <!-- Check student full -->
+                          <strong style="text-decoration: underline;"><?php if($student_full):echo "Class is full already"; endif ?></strong>
+                          <!-- End check student full -->
+
+                          <!-- Check student full -->
+                          <strong style="text-decoration: underline;"><?php if($student_book_already):echo "You've already booked"; endif ?></strong>
+                          <!-- End check student full -->
+
+                          </p>
+                        </label>
+                      <?php
+                        }
+                      ?>
+                      <input type="hidden" name="course_id" value="<?php echo $course_id; ?>">
+                      <input type="submit" name="booking_sm" value="Book" class="btn btn-success">
+                      <p style="color:red">
+                      <?php
+                        if(isset($_SESSION['un_selected'])){
+                          echo $_SESSION['un_selected'];
+                          unset($_SESSION['un_selected']);
+                        }
+                      ?></p>
+                      <p style="color:red">
+                      <?php
+                        if(isset($_SESSION['error_balance'])){
+                          echo $_SESSION['error_balance'];
+                          unset($_SESSION['error_balance']);
+                        }
+                      ?></p>
+                      <p style="color:green">
+                        <?php
+                        if(isset($_SESSION['booking_success'])){
+                          echo $_SESSION['booking_success'];
+                          unset($_SESSION['booking_success']);
+                        }
+                        ?>
+                      </p>
                   </div>
                 </form>
             </div>
@@ -120,7 +194,7 @@
                 </div>
               </div>
               </footer><!-- End Footer -->
-              
+
               <div id="preloader"></div>
               <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
               <!-- Vendor JS Files -->

@@ -1,9 +1,14 @@
+<?php
+  session_start();
+  include('server.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>RL-Page - UpTogether</title>
+    <title>Home - UpTogether</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
@@ -23,9 +28,9 @@
     <link href="assets/css/style.css" rel="stylesheet">
   </head>
   <body>
-    <!-- ======= rl-page ======= -->
+    <!-- ======= login ======= -->
     <div id="rl-page" class="rl-page d-flex justify-content-center align-items-center">
-      <div class="col-sm-10 col-lg-6 alert alert-light" role="login" data-aos="zoom-in" data-aos-delay="100">
+      <div class="col-sm-9 col-lg-5 alert alert-light" role="login" data-aos="zoom-in" data-aos-delay="100">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true">Login</button>
@@ -36,23 +41,36 @@
         </ul>
         <div class="tab-content" id="pills-tabContent">
           <div class="login tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-            <?php include 'login.html';?> <!--login Section-->
+            <?php include 'login.php';?>
           </div>
           <div class="regis tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
-            <?php include 'register.html';?> <!--register Section-->
+            <?php include 'register.php';?>
           </div>
         </div>
-      </div>
-    </div><!-- End rl-page -->
+        <p class="text-danger"><?php
 
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/purecounter/purecounter.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-    
-  </body>
-</html>
+        if(isset($_SESSION['error'])){
+          $error = $_SESSION['error'];
+          foreach ($error as $key => $value) {
+            echo $value;
+            echo "<br>";
+          };
+        }
+
+        unset($_SESSION['error']);
+        ?></p>
+
+      </div>
+
+      </div><!-- End login -->
+
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/aos/aos.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="assets/vendor/purecounter/purecounter.js"></script>
+      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
+    </body>
+  </html>

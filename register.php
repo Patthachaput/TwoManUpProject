@@ -1,11 +1,11 @@
 <h1>Register Form</h1>
-<form action="" role="form" method="post">
+<form action="register_db.php" role="form" method="post">
 	<ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
 		<li class="nav-item" role="presentation">
-			<button class="nav-link active" id="pills-section1-tab" data-bs-toggle="pill" data-bs-target="#pills-section1" type="button" role="tab" aria-controls="pills-section1" aria-selected="true">Step1</button>
+			<button class="nav-link active" id="pills-section1-tab" data-bs-toggle="pill" data-bs-target="#pills-section1" type="button" role="tab" aria-controls="pills-section1" aria-selected="true">1</button>
 		</li>
 		<li class="nav-item" role="presentation">
-			<button class="nav-link" id="pills-section2-tab" data-bs-toggle="pill" data-bs-target="#pills-section2" type="button" role="tab" aria-controls="pills-section2" aria-selected="false">Step2</button>
+			<button class="nav-link" id="pills-section2-tab" data-bs-toggle="pill" data-bs-target="#pills-section2" type="button" role="tab" aria-controls="pills-section2" aria-selected="false">2</button>
 		</li>
 	</ul>
 	<div class="tab-content" id="pills-tabContent">
@@ -13,13 +13,13 @@
 			<div class="form-group row g-3 mb-3">
 				<div class="col-6">
 					<div class="form-floating">
-						<input class="form-control" type="text" id="fname" name="fname" placeholder="First Name">
+						<input class="form-control" type="text" id="fname" name="f_name" placeholder="First Name">
 						<label for="fname">First Name</label>
 					</div>
 				</div>
 				<div class="col-6">
 					<div class="form-floating">
-						<input class="form-control" type="text" id="lname" name="lname" placeholder="Last Name">
+						<input class="form-control" type="text" id="lname" name="l_name" placeholder="Last Name">
 						<label for="lname">Last Name</label>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 				</div>
 				<div class="col-6">
 					<div class="form-floating">
-						<input class="form-control" type="date" id="birthDate" name="birthDate" min="1921-01-01" placeholder="Birth Date">
+						<input class="form-control" type="date" id="birthDate" name="birthdate" min="1921-01-01" placeholder="Birth Date">
 						<label for="birthDate">Birth Date</label>
 					</div>
 				</div>
@@ -46,28 +46,20 @@
 						<label for="address">Address</label>
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-12">
 					<div class="form-floating">
-						<input class="form-control" type="text" id="city" name="city" placeholder="City">
-						<label for="address">City</label>
-					</div>
-				</div>
-				<div class="col-4">
-					<div class="form-floating">
-						<input class="form-control" type="text" id="state" name="state" placeholder="City">
-						<label for="state">State</label>
-					</div>
-				</div>
-				<div class="col-4">
-					<div class="form-floating">
-						<input class="form-control" type="text" id="postCode" name="postCode" placeholder="postCode">
-						<label for="postCode">PostCode</label>
+						<input class="form-control" type="tel" id="phone" name="tel" placeholder="xxx-xxx-xxxx" pattern="[0-9]{10}">
+						<label for="phone">Phone</label>
 					</div>
 				</div>
 				<div class="col-12">
 					<div class="form-floating">
-						<input class="form-control" type="tel" id="phone" name="phone" placeholder="xxx-xxx-xxxx" pattern="[0-9]{10}">
-						<label for="phone">Phone</label>
+						<select class="form-select" id="role" name="role" aria-label="role">
+							<option selected>Choose...</option>
+							<option value="Student">Student</option>
+							<option value="Tutor">Tutor</option>
+						</select>
+						<label for="role">role</label>
 					</div>
 				</div>
 			</div>
@@ -88,18 +80,8 @@
 				</div>
 				<div class="col-6">
 					<div class="form-floating">
-						<input class="form-control" type="password" id="confirmPassword" name="confirmPassword" placeholder="Password">
-						<label for="confirmPassword">ConfirmPassword</label>
-					</div>
-				</div>
-				<div class="col-12">
-					<div class="form-floating">
-						<select class="form-select" id="role" name="role" aria-label="role">
-							<option selected>Registre as...</option>
-							<option value="male">Student</option>
-							<option value="female">Tutor</option>
-						</select>
-						<label for="role">role</label>
+						<input class="form-control" type="password" id="confirmPassword" name="cf_password" placeholder="Password">
+						<label for="confirmPassword">Confirm Password</label>
 					</div>
 				</div>
 				<div class="col-12">
@@ -108,9 +90,23 @@
 						<label for="school">School</label>
 					</div>
 				</div>
+				<div class="col-6">
+					<div class="form-floating">
+						<input class="form-control" type="text" id="degree" name="degree" placeholder="Degree">
+						<label for="degree">Degree</label>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="form-floating">
+						<input class="form-control" type="text" id="grade" name="grade" placeholder="Grade">
+						<label for="grade">Grade</label>
+					</div>
+				</div>
 				<div class="col-12">
-					<div class="form-group padding">
-						<div class="text-center"><button type="submit">Register</button></div>
+					<div class="form-floating">
+						<div class="form-group padding">
+							<div class="text-center"><button type="submit" name="reg_user">Register</button></div>
+						</div>
 					</div>
 				</div>
 			</div>

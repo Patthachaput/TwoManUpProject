@@ -29,27 +29,11 @@
         <h1 class="logo me-auto"><a href="index.html">Mentor</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-        <nav id="navbar" class="navbar order-last order-lg-0">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a class="active" href="courses.html">Courses</a></li>
-            <li><a href="trainers.html">Tutor</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Book Couse</a></li>
-              <li><a href="#"></a>Your schedule</li>
-              <li><a href="#">My hours</a></li>
-              <li><a href="#">TopUp</a></li>
-              <li><a href="#">Playment</a></li>
-              <li><a href="#">Book History</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+
+        <?php
+          include('header.php');
+        ?>
+
         <a href="courses.html" class="get-started-btn">Login</a>
       </div>
       </header><!-- End Header -->
@@ -136,7 +120,7 @@
                     </div>
                   </div>
                   </footer><!-- End Footer -->
-                  
+
                   <div id="preloader"></div>
                   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
                   <!-- Vendor JS Files -->
