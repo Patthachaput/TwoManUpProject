@@ -30,7 +30,11 @@
       }
       $_SESSION['username'] = $user_info;
       $_SESSION['success'] = "You are now loged in";
-      header('location: index.php');
+      if($user_info['roll_id'] = 1){
+        header('location: admin/home-admin.php');
+      }else{
+        header('location: index.php');
+      }
     }else{
       array_push($error, "Incorect username or password");
       $_SESSION['error'] = $error;

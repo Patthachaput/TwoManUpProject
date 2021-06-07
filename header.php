@@ -35,6 +35,7 @@
         <?php if(isset($_SESSION['username'])){ ?>
             <?php if($_SESSION['username']['roll_id'] == 2){?>
               <li><a href="addCouse.php">Add course</a></li>
+              <li><a href="addSchedule.php">Add schedule</a></li>
             <?php }?>
         <?php } ?>
 

@@ -47,46 +47,70 @@
           </div><!-- End Breadcrumbs -->
           <!-- ======= Courses Section ======= -->
           <section id="addCouse" class="addCouse">
+            <?php
+              $user_info = $_SESSION['username'];
+              $user_id = $user_info['user_id'];
+            ?>
             <div class="container d-flex justify-content-center align-items-center" data-aos="zoom-in" data-aos-delay="100">
               <div class="course-page">
                 <br><h1>Adding New Schedule</h1>
                 <div class="course-content">
                   <!---------------form----------------->
-                  <form action="" role="form" method="post">
+                  <form action="add_schedule_db.php" method="post">
                     <div class="form-group row g-3 mb-3">
-                      <div class="col-12">
-                        <div class="form-floating">
-                          <input class="form-control" type="text" id="couseName" value="Close ID [Close Name]" disabled>
-                          <label for="couseName">Start Time</label>
-                        </div>
-                      </div>
                       <div class="col-6">
                         <div class="form-floating">
-                          <input class="form-control" type="date" id="startTime" name="startTime" placeholder="startTime">
+                          <input class="form-control" type="datetime-local" id="startTime" name="startTime" placeholder="startTime">
                           <label for="startTime">Start Time</label>
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="form-floating">
-                          <input class="form-control" type="number" id="hour" name="hour" placeholder="Duration (hour)">
+                          <input class="form-control" type="number" id="hour" name="hour" placeholder="Duration (hour)" required>
                           <label for="hour">Duration (hour)</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating">
+                          <select class="form-select" id="course" name="course_id" aria-label="gender">
+                            <?php
+                              $sql = "SELECT course_id, subject, max_hours FROM courses WHERE tutor_id = '$user_id'";
+                              $result = $conn->query($sql);
+                              if(mysqli_num_rows($result) > 0){
+                                while ($row = $result->fetch_assoc()) { ?>
+                                  <option value="<?php echo $row['course_id'];?>"><?php echo $row['subject'];?></option>
+                            <?php }
+                              }
+                            ?>
+                          </select>
+                          <label for="gender">Course</label>
                         </div>
                       </div>
                         <div class="col-12">
                           <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave details here" id="classDetails" name="classDetails" style="height: 100px"></textarea>
-                            <label for="classDetails">Class Details</label>
+                            <textarea class="form-control" placeholder="Leave details here" id="classDetails" name="classDetails" style="height: 100px" required></textarea>
+                            <label for="classDetails">Class Topic</label>
                           </div>
                         </div>
                         <div class="col-12">
                         <div class="form-floating">
-                          <input class="form-control" type="number" id="maxStudent" name="maxStudent" placeholder="maxStudent">
+                          <input class="form-control" type="number" id="maxStudent" name="maxStudent" placeholder="maxStudent" required>
                           <label for="maxStudent">Max Student</label>
+                        </div>
+                        <div class="col-12">
+                          <p style="color:green">
+                          <?php
+                            if(isset($_SESSION['add_schedule'])){
+                              echo $_SESSION['add_schedule'];
+                              unset($_SESSION['add_schedule']);
+                            }
+                          ?>
+                          </p>
                         </div>
                       </div>
                         <div class="col-12">
                           <div class="form-group padding">
-                            <div class="text-center"><button type="submit">Add Schedule</button></div>
+                            <div class="text-center"><button type="submit" name = "add_schedule">Add Schedule</button></div>
                           </div>
                         </div>
                       </div>

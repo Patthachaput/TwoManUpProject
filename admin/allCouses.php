@@ -30,7 +30,7 @@
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         <?php
-        include('header.php');
+          include('header.php');
         ?>
         <a href="courses.html" class="get-started-btn">Login</a>
       </div>
@@ -70,24 +70,20 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                      $sql = "SELECT * FROM courses";
+                      $result = $conn->query($sql);
+                      while ($row = $result->fetch_assoc()){
+                    ?>
                     <tr>
-                      <td>1234</td>
-                      <td>Phtsic</td>
+                      <td><?php echo $row['course_id']; ?></td>
+                      <td><?php echo $row['subject']; ?></td>
                       <td><a href="#">View</a></td>
                       <td><a class="btn btn-success" href="#" role="button">Book</a></td>
                     </tr>
-                     <tr>
-                      <td>1234</td>
-                      <td>Phtsic</td>
-                      <td><a href="#">View</a></td>
-                      <td><a class="btn btn-success" href="#" role="button">Book</a></td>
-                    </tr>
-                    <tr>
-                      <td>1234</td>
-                      <td>Phtsic</td>
-                      <td><a href="#">View</a></td>
-                      <td><a class="btn btn-success" href="#" role="button">Book</a></td>
-                    </tr>
+                    <?php
+                    }
+                    ?>
                   </tbody>
                 </table>
               </div>

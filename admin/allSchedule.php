@@ -30,7 +30,7 @@
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         <?php
-        include('header.php');
+          include('header.php');
         ?>
         <a href="courses.html" class="get-started-btn">Login</a>
       </div>
@@ -74,36 +74,51 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1234</td>
-                      <td>Phtsic</td>
-                      <td>12/02/2021 12:00-14:00</td>
-                      <td><a href="#">View</a></td>
-                      <td>8</td>
-                      <td>Tutor Name</td>
-                      <td><a class="btn btn-success" href="#" role="button">Book</a></td>
-                      <td>Adder Name</td>
-                    </tr>
-                     <tr>
-                      <td>1234</td>
-                      <td>Phtsic</td>
-                      <td>12/02/2021 12:00-14:00</td>
-                      <td><a href="#">View</a></td>
-                      <td>8</td>
-                      <td>Tutor Name</td>
-                      <td><a class="btn btn-success" href="#" role="button">Book</a></td>
-                      <td>Adder Name</td>
-                    </tr>
-                   <tr>
-                      <td>1234</td>
-                      <td>Phtsic</td>
-                      <td>12/02/2021 12:00-14:00</td>
-                      <td><a href="#">View</a></td>
-                      <td>8</td>
-                      <td>Tutor Name</td>
-                      <td><a class="btn btn-success" href="#" role="button">Book</a></td>
-                      <td>Adder Name</td>
-                    </tr>
+                    <?php
+                      $sql = "SELECT
+                              schedule.schedule_id,
+                              courses.subject,
+                              schedule.start_time,
+                              schedule.hours,
+                              schedule.max_students,
+                              schedule.add_by_uer_id,
+                              users.f_name,
+                              users.l_name,
+                              users.user_id
+                            FROM schedule
+                            JOIN courses
+                              ON schedule.course_id = courses.course_id
+                            JOIN users
+                              ON schedule.tutor_id = users.user_id";
+
+                        $result = $conn->query($sql);
+                        while ($row = $result->fetch_assoc()) {
+                          $hours = $row['hours'];
+                          $add_by = $row['add_by_uer_id'];
+                      ?>
+                      <tr>
+                        <td><?php echo $row['schedule_id'] ?></td>
+                        <td><?php echo $row['subject']; ?></td>
+                        <td><?php echo date('Y-m-d h:i',strtotime($row['start_time']));?> - <?php echo date('h:i',strtotime("+$hours hour", strtotime($row['start_time'])));?></td>
+                        <td><a href="#">View</a></td>
+                        <td><?php echo $row['max_students']; ?></td>
+                        <td><?php echo $row['f_name']; echo " "; echo $row['l_name'];?></td>
+                        <td><a class="btn btn-success" href="#" role="button">Book</a></td>
+                        <td>
+                          <?php
+                            $sql_add_name = "SELECT f_name, l_name FROM users WHERE user_id = '$add_by'";
+                            $result_add_name = $conn->query($sql_add_name);
+                            while ($row_add = $result_add_name->fetch_assoc()) {
+                              echo $row_add['f_name'];
+                              echo " ";
+                              echo $row_add['l_name'];
+                            }
+                          ?>
+                        </td>
+                      </tr>
+                      <?php
+                      }
+                      ?>
                   </tbody>
                 </table>
               </div>

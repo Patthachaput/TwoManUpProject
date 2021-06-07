@@ -68,7 +68,7 @@
                 <form action="booking_db.php" method="post">
                   <div class="list-group">
                     <label class="list-group-item active">
-                      <h4>Couse Scchedule</h4>
+                      Couse Scchedule
                       <?php
                         while ($row = $result->fetch_assoc()) {
                           $schedule_id = $row['schedule_id'];
@@ -94,7 +94,6 @@
                           //End check if user book already
 
                         ?>
-                      </label>
                         <label class="list-group-item">
                           <input class="form-check-input me-1" type="checkbox" value="<?php echo $row['schedule_id'];?>" name="schedule[]"
                           <?php

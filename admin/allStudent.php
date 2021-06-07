@@ -30,7 +30,7 @@
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         <?php
-        include('header.php');
+          include('header.php');
         ?>
         <a href="courses.html" class="get-started-btn">Login</a>
       </div>
@@ -71,23 +71,19 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1234</td>
-                      <td>John Doe</td>
+                      <?php
+                        $sql = "SELECT * FROM users WHERE roll_id = 3";
+                        $result = $conn->query($sql);
+                        while ($row = $result->fetch_assoc()){
+                      ?>
+                      <td><?php echo $row['user_id']; ?></td>
+                      <td><?php echo $row['f_name']; echo " "; echo $row['l_name'];?></td>
                       <td><a href="#">View</a></td>
                       <td><a class="btn btn-success" href="#" role="button">Book</a></td>
                     </tr>
-                    <tr>
-                      <td>1234</td>
-                      <td>John Doe</td>
-                      <td><a href="#">View</a></td>
-                      <td><a class="btn btn-success" href="#" role="button">Book</a></td>
-                    </tr>
-                    <tr>
-                      <td>1234</td>
-                      <td>John Doe</td>
-                      <td><a href="#">View</a></td>
-                      <td><a class="btn btn-success" href="#" role="button">Book</a></td>
-                    </tr>
+                    <?php
+                    }
+                    ?>
                   </tbody>
                 </table>
             </div>

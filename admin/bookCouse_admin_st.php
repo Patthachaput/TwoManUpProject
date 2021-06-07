@@ -56,7 +56,7 @@
                       <div class="col-8">
                         <input class="form-control" type="text" id="studentID" name="studentID">
                       </div>
-                      <input class="col-2 btn btn-success" type="button" id="submitFormData" onclick="SubmitFormData();" value="Submit">
+                      <input class="col-2 btn btn-success" type="button" id="submitFormData" onclick="SubmitFormData();" value="Add">
                     </div>
                   </div>
                 </form>
