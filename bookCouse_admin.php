@@ -47,22 +47,25 @@
           <section id="addCouse" class="addCouse">
             <div class="container" data-aos="zoom-in" data-aos-delay="100">
               <!---------------form----------------->
-              <form action="" role="form" method="get">
-                <div class="card mb-3">
+              
+              <div class="card mb-3">
+                <form action="" id="myForm" role="form" method="get">
                   <div class="card-header bg-transparent">
                     <div class="form-group row">
                       <label for="student_ID" class="col-2 col-form-label">Student ID:</label>
                       <div class="col-8">
-                        <input class="form-control" type="text" name="student_ID" id="student_ID">
+                        <input class="form-control" type="text" id="studentID" name="studentID">
                       </div>
                       <div class="col-2">
-                        <input type="submit" class="btn btn-success" value="addStudent">
+                        <input class="btn btn-success" type="button" id="submitFormData" onclick="SubmitFormData();" value="Submit">
                       </div>
                     </div>
                   </div>
-                  <div class="card-body">
-                    <table class="table">
-                     <tr>
+                </form>
+                <form action="" role="form" method="post">
+                  <div class="card-body" id="results">
+                    <!-- <table class="table">
+                      <tr>
                         <td><h5>Student Name:</h5></td>
                         <td style="text-align: center;">Patthachaput Thanesmaneerat</td>
                         <td><h5>Student ID:</h5></td>
@@ -78,7 +81,7 @@
                         <td><h5>Student Name:</h5></td>
                         <td style="text-align: center;">Patthachaput Thanesmaneerat</td>
                         <td><h5>Student ID:</h5></td>
-                        <td style="text-align: center;">7875</td>
+                        <td style="text-align: center;">787598</td>
                         <td>
                           <div class="form-check">
                             <center><input type="checkbox" class="btn-check" id="btn-check-2-outlined" name="book2" value="2"checked autocomplete="off">
@@ -86,15 +89,17 @@
                           </div>
                         </td>
                       </tr>
-                    </table>
+                    </table> -->
                   </div>
-                  <div class="card-footer bg-transparent"><input type="submit" class="btn btn-success"></div>
-                </div>
-              </form>
-              </div> <!-- End Course Item-->
-              </section><!-- End Courses Section -->
-              </main><!-- End #main -->
-              <!-- ======= Footer ======= -->
+                  <div class="card-footer bg-transparent">
+                    <input type="submit" class="btn btn-success" value="book">
+                  </div>
+                </form>
+              </div>
+            </div> <!-- End Course Item-->
+          </section><!-- End Courses Section -->
+          </main><!-- End #main -->
+            <!-- ======= Footer ======= -->
               <footer id="footer">
                 <div class="container d-md-flex py-4">
                   <div class="me-md-auto text-center text-md-start">
@@ -121,18 +126,14 @@
                 <div id="preloader"></div>
                 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
                 <!-- Vendor JS Files -->
-                <script type="text/javascript">
-                $('#contactForm').submit(function () {
-                sendContactForm();
-                return false;
-                });
-                </script>
                 <script src="assets/vendor/aos/aos.js"></script>
                 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
                 <script src="assets/vendor/php-email-form/validate.js"></script>
                 <script src="assets/vendor/purecounter/purecounter.js"></script>
                 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
                 <!-- Template Main JS File -->
                 <script src="assets/js/main.js"></script>
+                <script src="assets/js/submit.js"></script>
               </body>
             </html>
