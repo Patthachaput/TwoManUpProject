@@ -27,13 +27,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Mentor - v4.3.0
-  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -46,7 +39,6 @@
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
         <h2>Course Details</h2>
-        <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
       </div>
     </div><!-- End Breadcrumbs -->
 
@@ -57,55 +49,42 @@
           <div class="col-lg-8">
             <h3>
               <?php
-                $course = array();
-                if(isset($_GET['course_id'])){
-                  $course_id = $_GET['course_id'];
-                  echo $course_id;
-                  $sql = "SELECT `course_id`, `subject`, `tutor_id`, `max_hours`, `course_detail`, `open`, `f_name`, `l_name`
-                          FROM `courses`
-                          INNER JOIN users ON users.user_id=courses.tutor_id WHERE courses.course_id = '$course_id'";
+              if(isset($_GET['course_id'])){
+                    $course_id = $_GET['course_id'];
+                    $sql = "SELECT `course_id`, `subject`, `tutor_id`, `max_hours`, `course_detail`, `open`, `f_name`, `l_name`
+                    FROM `courses` WHERE user_id = '$user_id'
+                    INNER JOIN users ON users.user_id=courses.tutor_id";
 
-                  $result = $conn->query($sql);
+                    $this_couse = array();
 
-                  if($result->num_rows > 0){
-                    while ($row = $result->fetch_assoc()) {
-                      $course = $row;
+                    $result = $conn->query($sql);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $this_couse = $row;
                     }
-                    echo "FFF";
-
-                  }else {
-                    echo "string";
-                  }
-                }else {
-                  echo "string";
-                }
-              ?></h3>
+              }
+            ?>
+            <?php echo $this_couse['subject']; ?>
+            </h3>
             <p>
-              Qui et explicabo voluptatem et ab qui vero et voluptas. Sint voluptates temporibus quam autem. Atque nostrum voluptatum laudantium a doloremque enim et ut dicta. Nostrum ducimus est iure minima totam doloribus nisi ullam deserunt. Corporis aut officiis sit nihil est. Labore aut sapiente aperiam.
-              Qui voluptas qui vero ipsum ea voluptatem. Omnis et est. Voluptatem officia voluptatem adipisci et iusto provident doloremque consequatur. Quia et porro est. Et qui corrupti laudantium ipsa.
-              Eum quasi saepe aperiam qui delectus quaerat in. Vitae mollitia ipsa quam. Ipsa aut qui numquam eum iste est dolorum. Rem voluptas ut sit ut.
+            <?php echo $this_couse['course_detail']; ?>
             </p>
           </div>
+
           <div class="col-lg-4">
 
             <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Trainer</h5>
-              <p><a href="#">Walter White</a></p>
-            </div>
-
-            <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Course Fee</h5>
-              <p>$165</p>
+              <h5>Tutor</h5>
+              <p><a href="#"><?php echo $this_couse['f_name']; echo " "; echo $this_couse['l_name'];?></a></p>
             </div>
 
             <div class="course-info d-flex justify-content-between align-items-center">
               <h5>Available Seats</h5>
-              <p>30</p>
+              <p><?php echo $this_couse['open']; ?></p>
             </div>
 
             <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Schedule</h5>
-              <p>5.00 pm - 7.00 pm</p>
+              <h5>Max Hours(Dulation)</h5>
+              <p><?php echo $this_couse['max_hours']; ?></p>
             </div>
 
           </div>

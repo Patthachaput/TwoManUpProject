@@ -30,7 +30,7 @@
       }
       $_SESSION['username'] = $user_info;
       $_SESSION['success'] = "You are now loged in";
-      if($user_info['roll_id'] = 1){
+      if($user_info['roll_id'] == 1){
         header('location: admin/home-admin.php');
       }else{
         header('location: index.php');

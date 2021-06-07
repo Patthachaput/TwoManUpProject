@@ -54,7 +54,7 @@
         <?php
       }else{
         ?>
-        <a style="margin-left:10px;" href="index.php?logout='1'" class="btn btn-danger">Logout</a>
+        <a href="index.php?logout='1'" class="get-logout-btn">Logout</a>
         <?php }
     ?>
   </div>

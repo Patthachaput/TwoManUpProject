@@ -57,18 +57,17 @@
         <div class="breadcrumbs">
           <div class="container">
             <h2>Booking Couse</h2>
-            <p>It is a form to add new courses to the system to add courses. Please enter the course name, instructor code, duration throughout the course (hour) and course details.</p>
           </div>
           </div><!-- End Breadcrumbs -->
           <!-- ======= Courses Section ======= -->
           <section id="addCouse" class="addCouse">
             <div class="container" data-aos="zoom-in" data-aos-delay="100">
-                <br><h1>Booking Couse: <?php echo $course['subject']; ?></h1>
+                <p style="font-size: 28px; padding-bottom: 10px;">Booking Couse : <?php echo $course['subject']; ?></p>
 
                 <form action="booking_db.php" method="post">
                   <div class="list-group">
-                    <label class="list-group-item active">
-                      Couse Scchedule
+                    <label class="list-group-item">
+                      <p style="text-align: center; font-size: 20px; padding-top: 10px;">Couse Scchedule</p>
                       <?php
                         while ($row = $result->fetch_assoc()) {
                           $schedule_id = $row['schedule_id'];
@@ -94,54 +93,71 @@
                           //End check if user book already
 
                         ?>
+                      </label>
                         <label class="list-group-item">
-                          <input class="form-check-input me-1" type="checkbox" value="<?php echo $row['schedule_id'];?>" name="schedule[]"
-                          <?php
-                            date_default_timezone_set('Asia/Bangkok');
-                            $current_time = date_default_timezone_get();
-                            $current_time = strtotime($current_time);
-                            $out_of_time = FALSE;
-                            $student_full = FALSE;
-                            $student_book_already = FALSE;
+                          <div class="row" style="text-align: center;">
+                            <div class="col-1">
+                              <input class="form-check-input me-1" type="checkbox" value="<?php echo $row['schedule_id'];?>" name="schedule[]"
+                              <?php
+                                date_default_timezone_set('Asia/Bangkok');
+                                $current_time = date_default_timezone_get();
+                                $current_time = strtotime($current_time);
+                                $out_of_time = FALSE;
+                                $student_full = FALSE;
+                                $student_book_already = FALSE;
 
-                            if(mysqli_num_rows($check_student) > 0){
-                              echo "disabled";
-                              $student_book_already = TRUE;
-                            }
-                            elseif($current_time > strtotime($start_time)){
-                              echo "disabled";
-                              $out_of_time = TRUE;
+                                if(mysqli_num_rows($check_student) > 0){
+                                  echo "disabled";
+                                  $student_book_already = TRUE;
+                                }
+                                elseif($current_time > strtotime($start_time)){
+                                  echo "disabled";
+                                  $out_of_time = TRUE;
 
-                            }elseif($num_student == (int)$row['max_students']) {
-                              echo "disabled";
-                              $student_full = TRUE;
-                            }
-                          ?>
-                          >
-                          <!-- Display time and detail -->
-                          <p style="color:<?php if($out_of_time or $student_full or $student_book_already):echo "red"; endif ?>"><?php echo date('Y-m-d h:i',strtotime($start_time));?> - <?php echo date('h:i',strtotime("+$hours hour", strtotime($row['start_time'])));?>
-                          <strong>Topic</strong>: <?php echo $row['detail']; ?> <br>
-                          <!-- End display time and detail -->
+                                }elseif($num_student == (int)$row['max_students']) {
+                                  echo "disabled";
+                                  $student_full = TRUE;
+                                }
+                              ?>
+                              >
+                            </div>
+                            <div class="col-4">
+                              <!-- Display time and detail -->
+                              <p style="color:<?php if($out_of_time or $student_full or $student_book_already):echo "red"; endif ?>"><?php echo date('Y-m-d h:i',strtotime($start_time));?> - <?php echo date('h:i',strtotime("+$hours hour", strtotime($row['start_time'])));?>
+                              </p>
+                            </div>
+                            <div class="col-4">
+                              <p style="color:<?php if($out_of_time or $student_full or $student_book_already):echo "red"; endif ?>">
+                                <strong>Topic</strong>: <?php echo $row['detail']; ?>
+                                <!-- End display time and detail -->
+                              </p>
+                            </div>
+                            <div class="col-3">
+                              <p style="color:<?php if($out_of_time or $student_full or $student_book_already):echo "red"; endif ?>">
+                              <!-- Check out of time -->
+                              <strong style="text-decoration: underline;"><?php if($out_of_time):echo "Out of time"; endif ?></strong>
+                              <!-- End check out of time -->
 
-                          <!-- Check out of time -->
-                          <strong style="text-decoration: underline;"><?php if($out_of_time):echo "Out of time"; endif ?></strong>
-                          <!-- End check out of time -->
+                              <!-- Check student full -->
+                              <strong style="text-decoration: underline;"><?php if($student_full):echo "Class is full already"; endif ?></strong>
+                              <!-- End check student full -->
 
-                          <!-- Check student full -->
-                          <strong style="text-decoration: underline;"><?php if($student_full):echo "Class is full already"; endif ?></strong>
-                          <!-- End check student full -->
+                              <!-- Check student full -->
+                              <strong style="text-decoration: underline;"><?php if($student_book_already):echo "You've already booked"; endif ?></strong>
+                              <!-- End check student full -->
 
-                          <!-- Check student full -->
-                          <strong style="text-decoration: underline;"><?php if($student_book_already):echo "You've already booked"; endif ?></strong>
-                          <!-- End check student full -->
-
-                          </p>
+                              </p>
+                            </div>
+                          </div>
                         </label>
                       <?php
                         }
                       ?>
+                      </div>
                       <input type="hidden" name="course_id" value="<?php echo $course_id; ?>">
-                      <input type="submit" name="booking_sm" value="Book" class="btn btn-success">
+                      <p style="text-align: center; padding-top: 20px;">
+                        <input type="submit" name="booking_sm" value="Book" class="btn get-started-btn">
+                      </p>
                       <p style="color:red">
                       <?php
                         if(isset($_SESSION['un_selected'])){
@@ -164,7 +180,6 @@
                         }
                         ?>
                       </p>
-                  </div>
                 </form>
             </div>
             </div> <!-- End Course Item-->
@@ -178,10 +193,6 @@
                     &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
                   </div>
                   <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
                     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                   </div>
                 </div>

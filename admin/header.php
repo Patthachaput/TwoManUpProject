@@ -28,5 +28,15 @@
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
+    <?php
+      if(!isset($_SESSION['username'])){
+        ?>
+          <a href="rl-page.php" class="get-started-btn">Login</a>
+        <?php
+      }else{
+        ?>
+        <a href="../index.php?logout='1'" class="get-logout-btn">Logout</a>
+        <?php }
+    ?>
   </div>
 </header><!-- End Header -->

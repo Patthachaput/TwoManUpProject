@@ -40,18 +40,17 @@
         <div class="breadcrumbs">
           <div class="container">
             <h2>Book Class for Student</h2>
-            <p>It is a form to add new schedule to the system to add schedule. Please enter start time, duration of course (hour) and schedule details.</p>
           </div>
           </div><!-- End Breadcrumbs -->
           <!-- ======= Courses Section ======= -->
           <section id="addCouse" class="addCouse">
             <div class="container justify-content-center align-items-center" data-aos="zoom-in" data-aos-delay="100">
               <!---------------form----------------->
-              <h2>Add Couse [name of couse] For:</h2>
+              <p style="font-size: 26px;">Add Schedule <?php echo $_GET['schedule_id']; ?> For:</p>
               <div class="card mb-3">
                 <form action="booking_admin_db.php" role="form" method="post">
                   <div class="card-body" id="results">
-                    <table class="table">
+                    <table class="table table-borderless table-hover">
                       <?php
                         $schedule_id = $_GET['schedule_id'];
                         $sql = "SELECT * FROM users WHERE roll_id = 3";
@@ -66,7 +65,7 @@
                         <td style="text-align: center;"><?php echo $row['user_id']; ?></td>
                         <td>
                           <div class="form-check">
-                            <center><input type="checkbox" id="btn-check-2-outlined" name="student_list[] " value="<?php echo $row['user_id']; ?>">
+                            <center><input class="form-check-input" type="checkbox" id="btn-check-2-outlined" name="student_list[] " value="<?php echo $row['user_id']; ?>">
                           </div>
                         </td>
                       </tr>
@@ -76,7 +75,7 @@
                     </table>
                   </div>
                   <div class="card-footer bg-transparent">
-                    <input type="submit" class="btn btn-success" value="book" name="booking_admin">
+                    <div style="padding-top: 10px; text-align: center;"><input type="submit" class="btn get-started-btn" value="book" name="booking_admin"></div>
                     <input type="hidden" name="schedule_id" value="<?php echo $schedule_id; ?>">
                   </div>
                 </form>

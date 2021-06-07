@@ -7,20 +7,20 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
   </head>
   <body>
     <!-- ======= Header ======= -->
@@ -30,7 +30,7 @@
       <div class="breadcrumbs">
         <div class="container">
           <h2>Edit Profile</h2>
-          <p>It is a form to add new courses to the system to add courses. Please enter the course name, instructor code, duration throughout the course (hour) and course details.</p>
+          <p>It is a form to Edit Profile. Pliest fill the form</p>
         </div>
         </div><!-- End Breadcrumbs -->
         <!-- ======= Courses Section ======= -->
@@ -40,17 +40,15 @@
               <br><h1>Edit Profile</h1>
               <div class="course-content">
                 <?php
-                  if(isset($_GET['user_id'])){
-                    $user_id = $_GET['user_id'];
-                    $sql = "SELECT * FROM users WHERE user_id = '$user_id'";
-
-                    $user_profile = array();
-
-                    $result = $conn->query($sql);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                      $user_profile = $row;
-                    }
-                  }
+                if(isset($_GET['user_id'])){
+                $user_id = $_GET['user_id'];
+                $sql = "SELECT * FROM users WHERE user_id = '$user_id'";
+                $user_profile = array();
+                $result = $conn->query($sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                $user_profile = $row;
+                }
+                }
                 ?>
                 <!--------------form----------------->
                 <h3>User Id: <?php echo $user_profile['user_id']; ?></h3>
@@ -86,7 +84,6 @@
                       </div>
                     </div>
                     <div class="col-12">
-
                       <div class="form-floating">
                         <input class="form-control" type="text" id="address" name="address" placeholder="Address" value="<?php echo $user_profile['address']; ?>">
                         <label for="address">Address</label>
@@ -102,6 +99,18 @@
                       <div class="form-floating">
                         <input class="form-control" type="email" id="email" name="email" placeholder="Email Address" value="<?php echo $user_profile['email']; ?>">
                         <label for="email">Email Address</label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-floating">
+                        <input class="form-control" type="password" id="password" name="password" value="" placeholder="Password">
+                        <label for="password">Password</label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-floating">
+                        <input class="form-control" type="password" id="confirmPassword" value="" name="cf_password" placeholder="Password">
+                        <label for="confirmPassword">Confirm Password</label>
                       </div>
                     </div>
                     <div class="col-12">
@@ -134,25 +143,22 @@
                 </div>
               </form>
               <p class="text-danger"><?php
-
-              if(isset($_SESSION['error'])){
+                if(isset($_SESSION['error'])){
                 $error = $_SESSION['error'];
                 foreach ($error as $key => $value) {
-                  echo $value;
-                  echo "<br>";
+                echo $value;
+                echo "<br>";
                 };
-              }
-              unset($_SESSION['error']);
+                }
+                unset($_SESSION['error']);
               ?></p>
-
               <p class="text-success">
                 <?php
                 if(isset($_SESSION['success_edit'])){
-                  echo $_SESSION['success_edit'];
+                echo $_SESSION['success_edit'];
                 }
                 ?>
               </p>
-
             </div>
           </div>
           </div> <!-- End Course Item-->
@@ -163,7 +169,7 @@
             <div class="container d-md-flex py-4">
               <div class="me-md-auto text-center text-md-start">
                 <div class="copyright">
-                  &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+                  &copy; Copyright <strong><span>UpTograthre</span></strong>. All Rights Reserved
                 </div>
                 <div class="credits">
                   Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
@@ -181,12 +187,14 @@
             <div id="preloader"></div>
             <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
             <!-- Vendor JS Files -->
-            <script src="assets/vendor/aos/aos.js"></script>
-            <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <script src="assets/vendor/php-email-form/validate.js"></script>
-            <script src="assets/vendor/purecounter/purecounter.js"></script>
-            <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+            <script src="../assets/vendor/aos/aos.js"></script>
+            <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="../assets/vendor/php-email-form/validate.js"></script>
+            <script src="../assets/vendor/purecounter/purecounter.js"></script>
+            <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
             <!-- Template Main JS File -->
-            <script src="assets/js/main.js"></script>
+            <script src="../assets/js/main.js"></script>
+            <script src="../assets/js/submit.js"></script>
           </body>
         </html>
