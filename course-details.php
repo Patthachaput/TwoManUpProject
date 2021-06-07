@@ -49,11 +49,9 @@
           <div class="col-lg-8">
             <h3>
               <?php
-              if(isset($_GET['course_id'])){
+                  if(isset($_GET['course_id'])){
                     $course_id = $_GET['course_id'];
-                    $sql = "SELECT `course_id`, `subject`, `tutor_id`, `max_hours`, `course_detail`, `open`, `f_name`, `l_name`
-                    FROM `courses` WHERE user_id = '$user_id'
-                    INNER JOIN users ON users.user_id=courses.tutor_id";
+                    $sql = "SELECT * FROM courses WHERE course_id = '$course_id'";
 
                     $this_couse = array();
 
@@ -61,8 +59,8 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                       $this_couse = $row;
                     }
-              }
-            ?>
+                  }
+                ?>
             <?php echo $this_couse['subject']; ?>
             </h3>
             <p>
@@ -74,7 +72,7 @@
 
             <div class="course-info d-flex justify-content-between align-items-center">
               <h5>Tutor</h5>
-              <p><a href="#"><?php echo $this_couse['f_name']; echo " "; echo $this_couse['l_name'];?></a></p>
+              <p></p>
             </div>
 
             <div class="course-info d-flex justify-content-between align-items-center">
@@ -95,57 +93,6 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Mentor</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
     <div class="container d-md-flex py-4">
 
       <div class="me-md-auto text-center text-md-start">
