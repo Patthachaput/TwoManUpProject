@@ -39,18 +39,32 @@
             <div class="course-page">
               <br><h1>Edit Profile</h1>
               <div class="course-content">
+                <?php
+                  if(isset($_GET['user_id'])){
+                    $user_id = $_GET['user_id'];
+                    $sql = "SELECT * FROM users WHERE user_id = '$user_id'";
+
+                    $user_profile = array();
+
+                    $result = $conn->query($sql);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $user_profile = $row;
+                    }
+                  }
+                ?>
                 <!--------------form----------------->
-                <form action="#" role="form" method="post">
+                <h3>User Id: <?php echo $user_profile['user_id']; ?></h3>
+                <form action="editProfile_db.php" role="form" method="post">
                   <div class="form-group row g-3 mb-3">
                     <div class="col-6">
                       <div class="form-floating">
-                        <input class="form-control" type="text" id="fname" name="f_name" placeholder="First Name">
+                        <input class="form-control" type="text" id="fname" name="f_name" placeholder="First Name" value="<?php echo $user_profile['f_name']; ?>">
                         <label for="fname">First Name</label>
                       </div>
                     </div>
                     <div class="col-6">
                       <div class="form-floating">
-                        <input class="form-control" type="text" id="lname" name="l_name" placeholder="Last Name">
+                        <input class="form-control" type="text" id="lname" name="l_name" placeholder="Last Name" value="<?php echo $user_profile['l_name']; ?>">
                         <label for="lname">Last Name</label>
                       </div>
                     </div>
@@ -67,36 +81,26 @@
                     </div>
                     <div class="col-6">
                       <div class="form-floating">
-                        <input class="form-control" type="date" id="birthDate" name="birthdate" min="1921-01-01" placeholder="Birth Date">
+                        <input class="form-control" type="date" id="birthDate" name="birthdate" min="1921-01-01" placeholder="Birth Date" value="<?php echo $user_profile['birthday']; ?>">
                         <label for="birthDate">Birth Date</label>
                       </div>
                     </div>
                     <div class="col-12">
-       
+
                       <div class="form-floating">
-                        <input class="form-control" type="text" id="address" name="address" value="" placeholder="Address">
+                        <input class="form-control" type="text" id="address" name="address" value="" placeholder="Address" value="<?php echo $user_profile['address']; ?>">
                         <label for="address">Address</label>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-floating">
-                        <input class="form-control" type="tel" id="phone" name="tel" value="" placeholder="xxx-xxx-xxxx" pattern="[0-9]{10}">
+                        <input class="form-control" type="tel" id="phone" name="tel" value="" placeholder="xxx-xxx-xxxx" pattern="[0-9]{10}" value="<?php echo $user_profile['tel_number']; ?>">
                         <label for="phone">Phone</label>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-floating">
-                        <select class="form-select" id="role" name="role" value="" aria-label="role">
-                          <option selected>Choose...</option>
-                          <option value="Student">Student</option>
-                          <option value="Tutor">Tutor</option>
-                        </select>
-                        <label for="role">role</label>
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <div class="form-floating">
-                        <input class="form-control" type="email" id="email" name="email" value="" placeholder="Email Address">
+                        <input class="form-control" type="email" id="email" name="email" value="" placeholder="Email Address" value="<?php echo $user_profile['email']; ?>">
                         <label for="email">Email Address</label>
                       </div>
                     </div>
@@ -114,22 +118,23 @@
                     </div>
                     <div class="col-12">
                       <div class="form-floating">
-                        <input class="form-control" type="text" id="school" name="school" value="" placeholder="School">
+                        <input class="form-control" type="text" id="school" name="school" value="" placeholder="School" value="<?php echo $user_profile['birthday']; ?>">
                         <label for="school">School</label>
                       </div>
                     </div>
                     <div class="col-6">
                       <div class="form-floating">
-                        <input class="form-control" type="text" id="degree" name="degree" value="" placeholder="Degree">
+                        <input class="form-control" type="text" id="degree" name="degree" value="" placeholder="Degree" <?php echo $user_profile['degree']; ?>>
                         <label for="degree">Degree</label>
                       </div>
                     </div>
                     <div class="col-6">
                       <div class="form-floating">
-                        <input class="form-control" type="text" id="grade" name="grade" value="" placeholder="Grade">
+                        <input class="form-control" type="text" id="grade" name="grade" value="" placeholder="Grade" <?php echo $user_profile['grade']; ?>>
                         <label for="grade">Grade</label>
                       </div>
                     </div>
+                    <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
                     <div class="col-12">
                       <div class="form-floating">
                         <div class="form-group padding">
@@ -140,6 +145,26 @@
                   </div>
                 </div>
               </form>
+              <p class="text-danger"><?php
+
+              if(isset($_SESSION['error'])){
+                $error = $_SESSION['error'];
+                foreach ($error as $key => $value) {
+                  echo $value;
+                  echo "<br>";
+                };
+              }
+              unset($_SESSION['error']);
+              ?></p>
+
+              <p class="text-success">
+                <?php
+                if(isset($_SESSION['success_edit'])){
+                  echo $_SESSION['success_edit'];
+                }
+                ?>
+              </p>
+
             </div>
           </div>
           </div> <!-- End Course Item-->

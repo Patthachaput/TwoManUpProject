@@ -103,7 +103,7 @@
                         <td><a href="#">View</a></td>
                         <td><?php echo $row['max_students']; ?></td>
                         <td><?php echo $row['f_name']; echo " "; echo $row['l_name'];?></td>
-                        <td><a class="btn btn-success" href="#" role="button">Book</a></td>
+                        <td><a class="btn btn-success" href="bookCouse_admin_st.php?schedule_id=<?php echo $row['schedule_id']; ?>" role="button">Book</a></td>
                         <td>
                           <?php
                             $sql_add_name = "SELECT f_name, l_name FROM users WHERE user_id = '$add_by'";

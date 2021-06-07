@@ -49,50 +49,45 @@
               <!---------------form----------------->
               <h2>Add Couse [name of couse] For:</h2>
               <div class="card mb-3">
-                <form action="" id="myForm" role="form" method="post">
-                  <div class="card-header bg-transparent">
-                    <div class="form-group row">
-                      <label for="student_ID" class="col-2 col-form-label">Student ID:</label>
-                      <div class="col-8">
-                        <input class="form-control" type="text" id="studentID" name="studentID">
-                      </div>
-                      <input class="col-2 btn btn-success" type="button" id="submitFormData" onclick="SubmitFormData();" value="Add">
-                    </div>
-                  </div>
-                </form>
-                <form action="" role="form" method="post">
+                <form action="booking_admin_db.php" role="form" method="post">
                   <div class="card-body" id="results">
-                    <!-- <table class="table">
+                    <table class="table">
+                      <?php
+                        $schedule_id = $_GET['schedule_id'];
+                        $sql = "SELECT * FROM users WHERE roll_id = 3";
+                        $result = $conn->query($sql);
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                      ?>
                       <tr>
                         <td><h5>Student Name:</h5></td>
-                        <td style="text-align: center;">Patthachaput Thanesmaneerat</td>
+                        <td style="text-align: center;"><?php echo $row['f_name']; ?> <?php echo $row['l_name']; ?></td>
                         <td><h5>Student ID:</h5></td>
-                        <td style="text-align: center;">7875</td>
+                        <td style="text-align: center;"><?php echo $row['user_id']; ?></td>
                         <td>
                           <div class="form-check">
-                            <center><input type="checkbox" class="btn-check" id="btn-check-2-outlined" name="book2" value="2"checked autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="btn-check-2-outlined">Checked</label></center>
+                            <center><input type="checkbox" id="btn-check-2-outlined" name="student_list[] " value="<?php echo $row['user_id']; ?>">
                           </div>
                         </td>
                       </tr>
-                      <tr>
-                        <td><h5>Student Name:</h5></td>
-                        <td style="text-align: center;">Patthachaput Thanesmaneerat</td>
-                        <td><h5>Student ID:</h5></td>
-                        <td style="text-align: center;">787598</td>
-                        <td>
-                          <div class="form-check">
-                            <center><input type="checkbox" class="btn-check" id="btn-check-2-outlined" name="book2" value="2"checked autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="btn-check-2-outlined">Checked</label></center>
-                          </div>
-                        </td>
-                      </tr>
-                    </table> -->
+                      <?php
+                      }
+                      ?>
+                    </table>
                   </div>
                   <div class="card-footer bg-transparent">
-                    <input type="submit" class="btn btn-success" value="book">
+                    <input type="submit" class="btn btn-success" value="book" name="booking_admin">
+                    <input type="hidden" name="schedule_id" value="<?php echo $schedule_id; ?>">
                   </div>
                 </form>
+                <p style="color:green">
+                  <?php
+                    if(isset($_SESSION['admin_booking_success'])){
+                      echo $_SESSION['admin_booking_success'];
+                      unset($_SESSION['admin_booking_success']);
+                    }
+                  ?>
+                </p>
               </div>
             </div> <!-- End Course Item-->
           </section><!-- End Courses Section -->

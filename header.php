@@ -39,6 +39,10 @@
             <?php }?>
         <?php } ?>
 
+        <?php if(isset($_SESSION['username'])){?>
+          <li><a href="editProfile.php?user_id=<?php echo $_SESSION['username']['user_id'];?>">Edit Profile</a></li>
+        <?php } ?>
+
         <li><a href="contact.php">Contact</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
