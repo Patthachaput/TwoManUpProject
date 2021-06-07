@@ -45,20 +45,18 @@
           </div><!-- End Breadcrumbs -->
           <!-- ======= Courses Section ======= -->
           <section id="addCouse" class="addCouse">
-            <div class="container" data-aos="zoom-in" data-aos-delay="100">
+            <div class="container justify-content-center align-items-center" data-aos="zoom-in" data-aos-delay="100">
               <!---------------form----------------->
-              
+              <h2>Add Couse [name of couse] For:</h2>
               <div class="card mb-3">
-                <form action="" id="myForm" role="form" method="get">
+                <form action="" id="myForm" role="form" method="post">
                   <div class="card-header bg-transparent">
                     <div class="form-group row">
                       <label for="student_ID" class="col-2 col-form-label">Student ID:</label>
                       <div class="col-8">
                         <input class="form-control" type="text" id="studentID" name="studentID">
                       </div>
-                      <div class="col-2">
-                        <input class="btn btn-success" type="button" id="submitFormData" onclick="SubmitFormData();" value="Submit">
-                      </div>
+                      <input class="col-2 btn btn-success" type="button" id="submitFormData" onclick="SubmitFormData();" value="Submit">
                     </div>
                   </div>
                 </form>
