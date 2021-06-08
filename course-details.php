@@ -51,7 +51,18 @@
               <?php
                   if(isset($_GET['course_id'])){
                     $course_id = $_GET['course_id'];
-                    $sql = "SELECT * FROM courses WHERE course_id = '$course_id'";
+                    $sql = "SELECT
+                        courses.subject,
+                        courses.max_hours,
+                        courses.open,
+			                  courses.course_detail,
+                        users.f_name,
+                        users.l_name,
+                        users.user_id
+                        FROM courses
+                        JOIN users
+                        ON courses.tutor_id = users.user_id
+                        WHERE courses.course_id = '$course_id'";
 
                     $this_couse = array();
 
@@ -60,24 +71,32 @@
                       $this_couse = $row;
                     }
                   }
+                  echo $this_couse['subject'];
                 ?>
-            <?php echo $this_couse['subject']; ?>
             </h3>
             <p>
-            <?php echo $this_couse['course_detail']; ?>
+              <?php echo $this_couse['course_detail']; ?>
             </p>
+
+            <a type="button" name="button" class="btn btn-info" href="booking.php?course_id=<?php echo $course_id; ?>">Book</a>
           </div>
 
           <div class="col-lg-4">
 
             <div class="course-info d-flex justify-content-between align-items-center">
               <h5>Tutor</h5>
-              <p></p>
+              <p><?php echo $this_couse['f_name'];?> <?php echo $this_couse['l_name'];?></p>
             </div>
 
             <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Available Seats</h5>
-              <p><?php echo $this_couse['open']; ?></p>
+              <h5>Course status</h5>
+              <p><?php
+                if($this_couse['open']){
+                  echo "open";
+                }else{
+                  echo "close";
+                }
+              ?></p>
             </div>
 
             <div class="course-info d-flex justify-content-between align-items-center">

@@ -66,7 +66,7 @@
                 </div>
 
                 <h3>
-                <a href="booking.php?course_id=<?php echo $row['course_id'];?>"
+                <a href="course-details.php?course_id=<?php echo $row['course_id'];?>"
                     style="<?php if($_SESSION['username']['roll_id'] == 2): echo "pointer-events: none;"; endif ?>">
                   <?php echo $row['subject'];?>
                 </a>
