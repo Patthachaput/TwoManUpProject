@@ -52,6 +52,7 @@
                 ?>
                 <!--------------form----------------->
                 <h3>User Id: <?php echo $user_profile['user_id']; ?></h3>
+                <p>Total hours available: <?php echo $user_profile['hours_topup']-$user_profile['hours_spend']; ?></p>
                 <form action="editProfile_db.php" role="form" method="post">
                   <div class="form-group row g-3 mb-3">
                     <div class="col-6">
