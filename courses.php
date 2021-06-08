@@ -58,7 +58,7 @@
             if($result->num_rows > 0){
               while ($row = $result->fetch_assoc()) {
           ?>
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-md-0">
+          <div class="col-lg-4 col-md-6 align-items-stretch mt-4">
             <div class="course-item">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">

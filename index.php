@@ -162,52 +162,28 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-lg-3 col-md-4">
+          <div class="col-lg-6 col-md-12 mt-4">
             <div class="icon-box">
               <i class="ri-contacts-book-2-line" style="color: #ff5828;"></i>
-              <h3><a href="">Register Couse</a></h3>
+              <h3><a href="booking.php">Book Couse</a></h3>
             </div>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class=" ri-pushpin-line" style="color: #5578ff;"></i>
-              <h3><a href="">Book Class</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div class="col-lg-6 col-md-12 mt-4">
             <div class="icon-box">
               <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
               <h3><a href="">Your schedule</a></h3>
             </div>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="ri-contacts-line" style="color: #4233ff;"></i>
-              <h3><a href="">Tutors Profile</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
+          <div class="col-lg-6 col-md-12 mt-4">
             <div class="icon-box">
               <i class="ri-time-line" style="color: #b20969;"></i>
               <h3><a href="">My hours</a></h3>
             </div>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
+          <div class="col-lg-6 col-md-12 mt-4">
             <div class="icon-box">
               <i class="ri-database-2-line" style="color: #47aeff;"></i>
-              <h3><a href="">TopUp</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-wallet-3-line" style="color: #ffbb2c;"></i>
-              <h3><a href="">Playment</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-history-line" style="color: #11dbcf;"></i>
-              <h3><a href="">Book History</a></h3>
+              <h3><a href="pricing.php">TopUp</a></h3>
             </div>
           </div>
         </div>
@@ -232,7 +208,7 @@
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Web Development</h4>
-                  <p class="price">$169</p>
+                  <p class="price">28 hrs</p>
                 </div>
 
                 <h3><a href="course-details.html">Website Design</a></h3>
@@ -258,7 +234,7 @@
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Marketing</h4>
-                  <p class="price">$250</p>
+                  <p class="price">32 hrs</p>
                 </div>
 
                 <h3><a href="course-details.html">Search Engine Optimization</a></h3>
@@ -285,7 +261,7 @@
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Content</h4>
-                  <p class="price">$180</p>
+                  <p class="price">21 hrs</p>
                 </div>
 
                 <h3><a href="course-details.html">Copywriting</a></h3>

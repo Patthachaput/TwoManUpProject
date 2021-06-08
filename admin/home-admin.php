@@ -27,13 +27,42 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-content-center align-items-center">
       <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-        <h1>Start Success,<br>Start With Good Plan</h1>
-        <h2>We have a team of tutors to help plan all levels of study</h2>
-        <a href="courses.html" class="btn-get-started">Get Started</a>
+        <h1>Welcome<br>To Admin Page</h1>
+        <h2>Hello admin, have a good work with your student.</h2>
       </div>
       </section><!-- End Hero -->
       <main id="main">
-        <!-- ======= About Section ======= -->
+        <section id="features" class="features">
+      <div class="container" data-aos="fade-up">
+        <h1>Please Select Your Section.</h1>
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-lg-6 col-md-12 mt-4">
+            <div class="icon-box">
+              <i class="ri-contacts-book-2-line" style="color: #ff5828;"></i>
+              <h3><a href="allSchedule.php">Book Couse</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 mt-4">
+            <div class="icon-box">
+              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+              <h3><a href="allSchedule.php">All Schedule</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 mt-4">
+            <div class="icon-box">
+              <i class="ri-time-line" style="color: #b20969;"></i>
+              <h3><a href="allCouses.php">All Courses</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 mt-4">
+            <div class="icon-box">
+              <i class="ri-database-2-line" style="color: #47aeff;"></i>
+              <h3><a href="allTutor.php">All Tutor</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Features Section -->
         </main><!-- End #main -->
         <!-- ======= Footer ======= -->
         <footer id="footer">
