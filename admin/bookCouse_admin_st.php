@@ -79,7 +79,7 @@
                     <input type="hidden" name="schedule_id" value="<?php echo $schedule_id; ?>">
                   </div>
                 </form>
-                <p style="color:green">
+                <p class="text-success" style="text-align: center; padding-top: 15px;">
                   <?php
                     if(isset($_SESSION['admin_booking_success'])){
                       echo $_SESSION['admin_booking_success'];

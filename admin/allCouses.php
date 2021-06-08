@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Courses - Mentor Bootstrap Template</title>
+    <title>All Courses - UpTogether</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
@@ -64,7 +64,7 @@
                     <tr>
                       <td><?php echo $row['course_id']; ?></td>
                       <td><?php echo $row['subject']; ?></td>
-                      <td><a href="#">View</a></td>
+                      <td><a href="course-details.php?course_id=<?php echo $row['course_id']; ?>">View</a></td>
                     </tr>
                     <?php
                     }

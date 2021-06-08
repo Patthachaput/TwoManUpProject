@@ -25,6 +25,7 @@
         <li><a  href="allTutor.php">Tutor List</a></li>
         <li><a  href="allSchedule.php">Schedule List</a></li>
         <li><a  href="allCouses.php">Course List</a></li>
+        <li><a  href="analysisReport.php">Analysis Report</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->

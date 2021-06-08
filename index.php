@@ -165,7 +165,7 @@
           <div class="col-lg-6 col-md-12 mt-4">
             <div class="icon-box">
               <i class="ri-contacts-book-2-line" style="color: #ff5828;"></i>
-              <h3><a href="booking.php">Book Couse</a></h3>
+              <h3><a href="courses.php">Book Couse</a></h3>
             </div>
           </div>
           <div class="col-lg-6 col-md-12 mt-4">

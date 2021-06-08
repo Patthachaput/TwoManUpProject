@@ -30,7 +30,6 @@
       <div class="breadcrumbs">
         <div class="container">
           <h2>Edit Profile</h2>
-          <p>It is a form to add new courses to the system to add courses. Please enter the course name, instructor code, duration throughout the course (hour) and course details.</p>
         </div>
         </div><!-- End Breadcrumbs -->
         <!-- ======= Courses Section ======= -->
@@ -40,22 +39,19 @@
               <br><h1>Edit Profile</h1>
               <div class="course-content">
                 <?php
-                  if(isset($_GET['user_id'])){
-                    $user_id = $_GET['user_id'];
-                    $sql = "SELECT * FROM users WHERE user_id = '$user_id'";
-
-                    $user_profile = array();
-
-                    $result = $conn->query($sql);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                      $user_profile = $row;
-                    }
-                  }
+                if(isset($_GET['user_id'])){
+                $user_id = $_GET['user_id'];
+                $sql = "SELECT * FROM users WHERE user_id = '$user_id'";
+                $user_profile = array();
+                $result = $conn->query($sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                $user_profile = $row;
+                }
+                }
                 ?>
                 <!--------------form----------------->
                 <h3>User Id: <?php echo $user_profile['user_id']; ?></h3>
                 <p>Total hours available: <?php echo $user_profile['hours_topup']-$user_profile['hours_spend']; ?></p>
-
                 <form action="editProfile_db.php" role="form" method="post">
                   <div class="form-group row g-3 mb-3">
                     <div class="col-6">
@@ -73,12 +69,11 @@
                     <div class="col-6">
                       <div class="form-floating">
                         <select class="form-select" id="gender" name="gender" aria-label="gender">
-                          <option selected>Choose...</option>
-                          <option value="male">Male</option>
-                          <option value="female">Female</option>
-                          <option value="other">Other</option>
+                          <option value="male" <?php echo $user_profile['gender'] == "Male" ? "selected" : "" ?>>Male</option>
+                          <option value="female" <?php echo $user_profile['gender'] == "Female" ? "selected" : "" ?>>Female</option>
+                          <option value="other" >Other</option>
                         </select>
-                        <label for="gender">Gender</label>
+                        <label for="gender" <?php echo $user_profile['gender'] == "Gender" ? "selected" : "" ?>>Gender</label>
                       </div>
                     </div>
                     <div class="col-6">
@@ -88,7 +83,6 @@
                       </div>
                     </div>
                     <div class="col-12">
-
                       <div class="form-floating">
                         <input class="form-control" type="text" id="address" name="address" placeholder="Address" value="<?php echo $user_profile['address']; ?>">
                         <label for="address">Address</label>
@@ -136,25 +130,23 @@
                 </div>
               </form>
               <p class="text-danger"><?php
-
-              if(isset($_SESSION['error'])){
+                if(isset($_SESSION['error'])){
                 $error = $_SESSION['error'];
                 foreach ($error as $key => $value) {
-                  echo $value;
-                  echo "<br>";
+                echo $value;
+                echo "<br>";
                 };
-              }
-              unset($_SESSION['error']);
+                }
+                unset($_SESSION['error']);
               ?></p>
-
-              <p class="text-success">
+              <center><p class="text-success">
                 <?php
                 if(isset($_SESSION['success_edit'])){
-                  echo $_SESSION['success_edit'];
+                echo $_SESSION['success_edit'];
+                unset($_SESSION['success_edit']);
                 }
                 ?>
-              </p>
-
+              </p></center>
             </div>
           </div>
           </div> <!-- End Course Item-->

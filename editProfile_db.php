@@ -20,17 +20,17 @@
     $user_id = $_POST['user_id'];
 
 
-    if(empty($password)){
-      array_push($error, "Password is required");
-    }
+    // if(empty($password)){
+    //   array_push($error, "Password is required");
+    // }
 
-    if(empty($cf_password)){
-      array_push($error, "Confirm password is required");
-    }
+    // if(empty($cf_password)){
+    //   array_push($error, "Confirm password is required");
+    // }
 
-    if($password != $cf_password){
-      array_push($error, "Password not match");
-    }
+    // if($password != $cf_password){
+    //   array_push($error, "Password not match");
+    // }
 
     if(empty($email)){
       array_push($error, "Email is required");

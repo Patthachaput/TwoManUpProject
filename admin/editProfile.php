@@ -70,12 +70,11 @@
                     <div class="col-6">
                       <div class="form-floating">
                         <select class="form-select" id="gender" name="gender" aria-label="gender">
-                          <option selected>Choose...</option>
-                          <option value="male">Male</option>
-                          <option value="female">Female</option>
-                          <option value="other">Other</option>
+                          <option value="male" <?php echo $user_profile['gender'] == "Male" ? "selected" : "" ?>>Male</option>
+                          <option value="female" <?php echo $user_profile['gender'] == "Female" ? "selected" : "" ?>>Female</option>
+                          <option value="other" >Other</option>
                         </select>
-                        <label for="gender">Gender</label>
+                        <label for="gender" <?php echo $user_profile['gender'] == "Gender" ? "selected" : "" ?>>Gender</label>
                       </div>
                     </div>
                     <div class="col-6">
@@ -157,6 +156,7 @@
                 <?php
                 if(isset($_SESSION['success_edit'])){
                 echo $_SESSION['success_edit'];
+                unset($_SESSION['success_edit']);
                 }
                 ?>
               </p>

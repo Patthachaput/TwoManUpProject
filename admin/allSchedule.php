@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Courses - Mentor Bootstrap Template</title>
+    <title>All Schedule - UpTogether</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
@@ -63,6 +63,7 @@
                     <?php
                     $sql = "SELECT
                     schedule.schedule_id,
+                    courses.course_id,
                     courses.subject,
                     schedule.start_time,
                     schedule.hours,
@@ -85,7 +86,7 @@
                       <td><?php echo $row['schedule_id'] ?></td>
                       <td><?php echo $row['subject']; ?></td>
                       <td><?php echo date('Y-m-d h:i',strtotime($row['start_time']));?> - <?php echo date('h:i',strtotime("+$hours hour", strtotime($row['start_time'])));?></td>
-                      <td><a href="#">View</a></td>
+                      <td><a href="course-details.php?course_id=<?php echo $row['course_id']; ?>">View</a></td>
                       <td><?php echo $row['max_students']; ?></td>
                       <td><?php echo $row['f_name']; echo " "; echo $row['l_name'];?></td>
                       <td><a class="btn get-started-btn" href="bookCouse_admin_st.php?schedule_id=<?php echo $row['schedule_id']; ?>" role="button" style="color: #fff;">Book</a></td>

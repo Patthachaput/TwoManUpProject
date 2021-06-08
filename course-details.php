@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Course Details - Mentor Bootstrap Template</title>
+  <title>Course Details - UpTogether</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -78,7 +78,7 @@
               <?php echo $this_couse['course_detail']; ?>
             </p>
 
-            <a type="button" name="button" class="btn btn-info" href="booking.php?course_id=<?php echo $course_id; ?>">Book</a>
+            <a type="button" name="button" class="btn get-started-btn" href="booking.php?course_id=<?php echo $course_id; ?>">Book</a>
           </div>
 
           <div class="col-lg-4">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Courses - Mentor Bootstrap Template</title>
+    <title>Home-admin - UpTogether</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
@@ -34,14 +34,8 @@
       <main id="main">
         <section id="features" class="features">
       <div class="container" data-aos="fade-up">
-        <h1>Please Select Your Section.</h1>
+        <br><h1>Please Select Your Action:</h1>
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-lg-6 col-md-12 mt-4">
-            <div class="icon-box">
-              <i class="ri-contacts-book-2-line" style="color: #ff5828;"></i>
-              <h3><a href="allSchedule.php">Book Couse</a></h3>
-            </div>
-          </div>
           <div class="col-lg-6 col-md-12 mt-4">
             <div class="icon-box">
               <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
@@ -50,13 +44,19 @@
           </div>
           <div class="col-lg-6 col-md-12 mt-4">
             <div class="icon-box">
-              <i class="ri-time-line" style="color: #b20969;"></i>
+              <i class="ri-book-3-line" style="color: #b20969;"></i>
               <h3><a href="allCouses.php">All Courses</a></h3>
             </div>
           </div>
           <div class="col-lg-6 col-md-12 mt-4">
             <div class="icon-box">
-              <i class="ri-database-2-line" style="color: #47aeff;"></i>
+              <i class="ri-team-line" style="color: #ff5828;"></i>
+              <h3><a href="allStudent.php">All Student</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 mt-4">
+            <div class="icon-box">
+              <i class="ri-contacts-line" style="color: #47aeff;"></i>
               <h3><a href="allTutor.php">All Tutor</a></h3>
             </div>
           </div>
